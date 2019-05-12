@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+}
+
+.card {
+  flex: 1;
+  margin: 6px;
+}
+
+.editor {
+  padding: 12px;
+}

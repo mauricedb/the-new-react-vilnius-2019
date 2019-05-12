@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import { url } from '../../shared/jokes-api';
 import Loading from '../../shared/loading';
 
 const FetchJokes = () => {
@@ -13,9 +14,7 @@ const FetchJokes = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const rsp = await fetch(
-          'http://api.icndb.com/jokes/random/10/?limitTo=[nerdy]&escape=javascript'
-        );
+        const rsp = await fetch(url);
         if (rsp.ok) {
           const data = await rsp.json();
           setState({ jokes: data.value, error: null, loading: false });

@@ -1,0 +1,55 @@
+{
+  "type": "success",
+  "value": [
+    {
+      "id": 543,
+      "joke": "Chuck Norris's programs can pass the Turing Test by staring at the interrogator.",
+      "categories": ["nerdy"]
+    },
+    {
+      "id": 559,
+      "joke": "Chuck Norris' unit tests don't run. They die.",
+      "categories": ["nerdy"]
+    },
+    {
+      "id": 454,
+      "joke": "Chuck Norris's first program was kill -9.",
+      "categories": ["nerdy"]
+    },
+    {
+      "id": 455,
+      "joke": "Chuck Norris burst the dot com bubble.",
+      "categories": ["nerdy"]
+    },
+    {
+      "id": 475,
+      "joke": "Chuck Norris doesn't need sudo, he just types \"Chuck Norris\" before his commands.",
+      "categories": ["nerdy"]
+    },
+    {
+      "id": 460,
+      "joke": "The only pattern Chuck Norris knows is God Object.",
+      "categories": ["nerdy"]
+    },
+    {
+      "id": 557,
+      "joke": "Chuck Norris can read from an input stream.",
+      "categories": ["nerdy"]
+    },
+    {
+      "id": 520,
+      "joke": "With Chuck Norris P = NP. There's no nondeterminism with Chuck Norris decisions.",
+      "categories": ["nerdy"]
+    },
+    {
+      "id": 509,
+      "joke": "Chuck Norris's OSI network model has only one layer - Physical.",
+      "categories": ["nerdy"]
+    },
+    {
+      "id": 551,
+      "joke": "Chuck Norris can over-write a locked variable.",
+      "categories": ["nerdy"]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import { url } from '../../shared/jokes-api';
 import Loading from '../../shared/loading';
 
 class FetchJokes extends Component {
@@ -8,9 +9,7 @@ class FetchJokes extends Component {
 
   async componentDidMount() {
     try {
-      const rsp = await fetch(
-        'http://api.icndb.com/jokes/random/10/?limitTo=[nerdy]&escape=javascript'
-      );
+      const rsp = await fetch(url);
       if (rsp.ok) {
         const data = await rsp.json();
         this.setState({ jokes: data.value, loading: false });

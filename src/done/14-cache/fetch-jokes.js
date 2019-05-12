@@ -12,9 +12,7 @@ const FetchJokes = () => {
   return (
     <ListGroup>
       {jokes.map(item => (
-        <ListGroup.Item key={item.id}>
-          {item.joke}
-        </ListGroup.Item>
+        <ListGroup.Item key={item.id}>{item.joke}</ListGroup.Item>
       ))}
     </ListGroup>
   );

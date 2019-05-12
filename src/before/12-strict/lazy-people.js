@@ -16,9 +16,7 @@ const StrictAndLazyPeople = () => {
         label="Display characters"
       />
 
-      <Suspense fallback={<Loading />}>
-        {selected && <People />}
-      </Suspense>
+      <Suspense fallback={<Loading />}>{selected && <People />}</Suspense>
     </>
   );
 };

@@ -1,13 +1,12 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import { url } from '../../shared/jokes-api';
 import Loading from '../../shared/loading';
 import { useFetch } from './useFetch';
 
 const FetchWithCustomHooks = () => {
-  const { loading, error, data: jokes } = useFetch(
-    'http://api.icndb.com/jokes/random/10/?limitTo=[nerdy]&escape=javascript'
-  );
+  const { loading, error, data: jokes } = useFetch(url);
 
   if (loading) {
     return <Loading />;

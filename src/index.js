@@ -6,8 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-
-const root = document.getElementById('root')
+const root = document.getElementById('root');
 ReactDOM.render(<App />, root);
 
 // const root = document.getElementById('root')

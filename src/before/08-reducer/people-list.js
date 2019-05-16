@@ -2,13 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const PeopleList = ({ people, selected, setSelected }) => (
+const PeopleList = ({ people, selected, dispatch }) => (
   <ListGroup variant="flush">
     {people.map(item => (
       <ListGroup.Item
         key={item.id}
         className={classNames({ active: item === selected })}
-        onClick={() => setSelected(item)}
+        onClick={() => dispatch({ type: 'select', payload: item })}
       >
         {item.fullName}
       </ListGroup.Item>

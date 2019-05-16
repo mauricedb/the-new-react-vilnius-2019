@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, StrictMode } from 'react';
 import classNames from 'classnames';
 import Card from 'react-bootstrap/Card';
 
@@ -61,11 +61,13 @@ const People = () => {
   return (
     <div className={classes.container}>
       <Card className={classes.card}>
-        <PeopleList
-          people={state.people}
-          selected={state.selected}
-          dispatch={dispatch}
-        />
+        <StrictMode>
+          <PeopleList
+            people={state.people}
+            selected={state.selected}
+            dispatch={dispatch}
+          />
+        </StrictMode>
       </Card>
 
       <Card className={classNames(classes.card, classes.editor)}>

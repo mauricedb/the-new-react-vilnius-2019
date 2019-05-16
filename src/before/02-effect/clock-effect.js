@@ -1,23 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import AnalogClock from '../../shared/analog-clock';
 
-class ClockEffect extends Component {
-  state = { now: new Date() };
-  handle = 0;
+const ClockEffect = () => {
+  const [now, setNow] = useState(new Date());
 
-  componentDidMount() {
-    this.handle = setInterval(() => this.setState({ now: new Date() }), 1000);
-  }
+  useEffect(() => {
+    const handle = setInterval(() => setNow(new Date()), 1000);
 
-  componentWillUnmount() {
-    clearInterval(this.handle);
-  }
+    return () => clearInterval(handle);
+  });
 
-  render() {
-    const { now } = this.state;
-
-    return <AnalogClock time={now} />;
-  }
-}
+  return <AnalogClock time={now} />;
+};
 
 export default ClockEffect;

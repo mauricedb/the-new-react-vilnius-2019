@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
-
-let mounted = Date.now();
-let lastRender = Date.now();
 
 const CounterState = () => {
   const [count, setCount] = useState(0);
+  const ref = useRef();
+  if (!ref.current) {
+    ref.current = {
+      mounted: Date.now(),
+      lastRender: Date.now()
+    };
+  }
+
   const now = Date.now();
-  const mountedElapsed = (now - mounted) / 1000;
-  const lastRenderElapsed = (now - lastRender) / 1000;
-  lastRender = now;
+  const mountedElapsed = (now - ref.current.mounted) / 1000;
+  const lastRenderElapsed = (now - ref.current.lastRender) / 1000;
+  ref.current.lastRender = now;
 
   return (
     <div>

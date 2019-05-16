@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import classNames from 'classnames';
 import Card from 'react-bootstrap/Card';
 
@@ -31,25 +31,52 @@ const initialPeople = [
 ];
 
 const People = () => {
-  const [people, setPeople] = useState(initialPeople);
-  const [selected, setSelected] = useState(initialPeople[0]);
+  // const [people, setPeople] = useState(initialPeople);
+  // const [selected, setSelected] = useState(initialPeople[0]);
+  const [state, dispatch] = useReducer(
+    function(oldState, action) {
+      if (action.type === 'select') {
+        return { ...oldState, selected: action.payload };
+      } else if (action.type === 'change') {
+        return {
+          ...oldState,
+          selected: action.payload,
+          people: oldState.people.map(p => {
+            if (p.id !== action.payload.id) {
+              return p;
+            }
+
+            return action.payload;
+          })
+        };
+      }
+
+      return oldState;
+    },
+    {
+      selected: initialPeople[0],
+      people: initialPeople
+    }
+  );
 
   return (
     <div className={classes.container}>
       <Card className={classes.card}>
         <PeopleList
-          people={people}
-          selected={selected}
-          setSelected={setSelected}
+          people={state.people}
+          selected={state.selected}
+          dispatch={dispatch}
+          // setSelected={setSelected}
         />
       </Card>
 
       <Card className={classNames(classes.card, classes.editor)}>
         <PersonEditor
-          people={people}
-          setPeople={setPeople}
-          selected={selected}
-          setSelected={setSelected}
+          people={state.people}
+          // setPeople={setPeople}
+          selected={state.selected}
+          dispatch={dispatch}
+          // setSelected={setSelected}
         />
       </Card>
     </div>

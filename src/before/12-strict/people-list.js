@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 const PeopleList = ({ people, selected, dispatch }) => (
-  <ListGroup variant="flush">
+  <div className="list-group list-group-flush">
     {people.map(item => (
       <ListGroup.Item
         key={item.id}
@@ -13,7 +13,7 @@ const PeopleList = ({ people, selected, dispatch }) => (
         {item.fullName}
       </ListGroup.Item>
     ))}
-  </ListGroup>
+  </div>
 );
 
 export default PeopleList;

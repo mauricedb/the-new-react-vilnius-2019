@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Demo from './before/01-counter/counter-state';
+// import Demo from './before/01-counter/counter-state';
 // import Demo from './done/01-counter/counter-state';
 // import Demo from './before/02-effect/clock-effect';
 // import Demo from './done/02-effect/clock-effect';
@@ -24,7 +24,7 @@ import Demo from './before/01-counter/counter-state';
 // import Demo from './done/11-lazy/lazy-people';
 // import Demo from './before/12-strict/lazy-people';
 // import Demo from './done/12-strict/lazy-people';
-// import Demo from './before/14-cache/jokes-page';
+import Demo from './before/14-cache/jokes-page';
 // import Demo from './done/14-cache/jokes-page';
 
 function App() {

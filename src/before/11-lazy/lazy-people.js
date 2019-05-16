@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import Form from 'react-bootstrap/Form';
 
-import People from './people';
+const People = lazy(() => import('./people'));
 
 const LazyPeople = () => {
   const [selected, setSelected] = useState(false);
@@ -15,7 +15,11 @@ const LazyPeople = () => {
         label="Display characters"
       />
 
-      {selected && <People />}
+      {selected && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <People />
+        </Suspense>
+      )}
     </div>
   );
 };

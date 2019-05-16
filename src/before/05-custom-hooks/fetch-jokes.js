@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useDebugValue, useMemo } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import { url } from '../../shared/jokes-api';
 import Loading from '../../shared/loading';
 
-const FetchWithCustomHooks = () => {
+function useFetch(url, options) {
   const [state, setState] = useState({
     jokes: null,
     error: null,
     loading: true
   });
 
+  useDebugValue(state.loading ? 'Loading' : 'Loaded');
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const rsp = await fetch(url);
+        const rsp = await fetch(url, options);
         if (rsp.ok) {
           const data = await rsp.json();
           setState({ jokes: data.value, error: null, loading: false });
@@ -27,9 +29,23 @@ const FetchWithCustomHooks = () => {
     }
 
     fetchData();
-  }, []);
+  }, [url, options]);
+  return state;
+}
 
-  const { loading, error, jokes } = state;
+const FetchWithCustomHooks = () => {
+  const { loading, error, jokes } = useFetch(
+    url,
+
+    useMemo(
+      () => ({
+        headers: {
+          accept: 'application/json'
+        }
+      }),
+      []
+    )
+  );
 
   if (loading) {
     return <Loading />;
